@@ -1,4 +1,4 @@
-﻿-- 비디오 테이블
+﻿-- [1] 비디오 테이블
 CREATE TABLE [dbo].[Videos]
 (
 	[Id] INT NOT NULL Identity(1,1) PRIMARY KEY,

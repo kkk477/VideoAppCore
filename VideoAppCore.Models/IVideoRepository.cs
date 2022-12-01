@@ -16,6 +16,5 @@ namespace VideoAppCore.Models
 		Video GetVideoById(int id);
 		Video UpdateVideo(Video model);
 		void DeleteVideoById(int id);
-
 	}
 }

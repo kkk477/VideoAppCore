@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoAppCore.Models.Common;
 
 namespace VideoAppCore.Models
 {
-	public class Video
+    public class Video : AuditableBase
 	{
 		/// <summary>
 		/// 일련번호
 		/// </summary>
 		public int Id { get; set; }
 
-		/// <summary>
-		/// 등록일
-		/// </summary>
-		public DateTimeOffset Created { get; set; }
-		
-		/// <summary>
-		/// 동영상 제목
-		/// </summary>
-		public string Title { get; set; }
+        /// <summary>
+        /// 동영상 제목
+        /// </summary>
+        public string Title { get; set; }
 
 		/// <summary>
 		/// 동영상 제공 URL

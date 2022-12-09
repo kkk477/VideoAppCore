@@ -3,7 +3,7 @@
     /// <summary>
     /// 리포지토리 클래스(비동기) ADO.NET을 사용하여 CRUD 구현
     /// </summary>
-    public class VideoRepositoryAsyncAdoNet : IVideoRepositoryAsync
+    public class VideoRepositoryAdoNetAsync : IVideoRepositoryAsync
     {
         public Task<Video> AddVideoAsync(Video model)
         {

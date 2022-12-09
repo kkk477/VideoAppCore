@@ -3,7 +3,7 @@
     /// <summary>
     /// [4][2] 리포지터리 클래스(비동기) : Dapper를 사용하여 CRUD 구현
     /// </summary>
-    public class VideoRepositoryAsyncDapper : IVideoRepositoryAsync
+    public class VideoRepositoryDapperAsync : IVideoRepositoryAsync
     {
         public Task<Video> AddVideoAsync(Video model)
         {

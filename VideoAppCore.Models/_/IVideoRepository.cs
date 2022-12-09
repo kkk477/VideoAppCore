@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoAppCore.Models
+namespace VideoAppCore.Models._
 {
     /// <summary>
     /// [3] 인터페이스 : Videos 테이블에 대한 CRUD API 명세서 작성. 동기방식

@@ -1,33 +1,49 @@
-﻿namespace VideoAppCore.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace VideoAppCore.Models
 {
     /// <summary>
     /// [4][3] 리포지터리 클래스(비동기) : EF Core를 사용하여 CRUD 구현
     /// </summary>
     public class VideoRepositoryEfCoreAsync : IVideoRepositoryAsync
     {
-        public Task<Video> AddVideoAsync(Video model)
+        private readonly VideoDbContext _context;
+        public VideoRepositoryEfCoreAsync(VideoDbContext context)
         {
-            throw new NotImplementedException();
+            this._context = context;
+        }
+        public async Task<Video> AddVideoAsync(Video model)
+        {
+            _context.Videos.Add(model);
+            await _context.SaveChangesAsync();
+            return model;
         }
 
-        public Task DeleteVideoByIdAsync(int id)
+        public async Task DeleteVideoByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var video = await _context.Videos.FindAsync(id);
+            if (video != null)
+            {
+                _context.Videos.Remove(video);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task<List<Video>> GetAllVideosAsync()
+        public async Task<List<Video>> GetAllVideosAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Videos.ToListAsync();
         }
 
-        public Task<Video> GetVideoByIdAsync(int id)
+        public async Task<Video> GetVideoByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Videos.FindAsync(id);
         }
 
-        public Task<Video> UpdateVideoAsync(Video model)
+        public async Task<Video> UpdateVideoAsync(Video model)
         {
-            throw new NotImplementedException();
+            _context.Entry(model).State= EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return model;
         }
     }
 }

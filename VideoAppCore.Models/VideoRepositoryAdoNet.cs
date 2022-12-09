@@ -1,9 +1,9 @@
 ﻿namespace VideoAppCore.Models
 {
-	/// <summary>
-	/// [4][1] 리포지터리 클래스 : ADO.NET을 사용하여 CRUD 구현
-	/// </summary>
-	public class VideoRepositoryAdoNet : IVideoRepository
+    /// <summary>
+    /// [4][1] 리포지터리 클래스 : ADO.NET을 사용하여 CRUD 구현
+    /// </summary>
+    public class VideoRepositoryAdoNet : IVideoRepository
 	{
 		public Video AddVideo(Video model)
 		{

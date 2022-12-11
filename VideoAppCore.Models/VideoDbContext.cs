@@ -37,5 +37,10 @@ namespace VideoAppCore.Models
         /// 비디오 앱
         /// </summary>
         public DbSet<Video> Videos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Video>().Property(v => v.Created).HasDefaultValueSql("GetData()");
+        }
     }
 }

@@ -26,7 +26,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 // 새로운 DbContext 클래스 등록
 builder.Services.AddDbContext<VideoDbContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("VideoAppCore")));
 
 builder.Services.AddTransient<IVideoRepositoryAsync, VideoRepositoryEfCoreAsync>();
 

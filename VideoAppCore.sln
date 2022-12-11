@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VideoAppCore.SqlServer", "V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoAppCore.Models", "VideoAppCore.Models\VideoAppCore.Models.csproj", "{C63D3987-7269-407A-B8C0-E36ACC1A50A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoAppCore.Models.Tests", "VideoAppCore.Models.Tests\VideoAppCore.Models.Tests.csproj", "{2191D3BC-DC7A-4CB0-924B-2844763686FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C63D3987-7269-407A-B8C0-E36ACC1A50A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C63D3987-7269-407A-B8C0-E36ACC1A50A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C63D3987-7269-407A-B8C0-E36ACC1A50A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2191D3BC-DC7A-4CB0-924B-2844763686FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2191D3BC-DC7A-4CB0-924B-2844763686FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2191D3BC-DC7A-4CB0-924B-2844763686FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2191D3BC-DC7A-4CB0-924B-2844763686FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

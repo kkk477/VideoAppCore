@@ -16,7 +16,7 @@
         /// <summary>
         /// 수정자
         /// </summary>
-        public string ModifiedBy { get; set; }
+        public string? ModifiedBy { get; set; }
 
         /// <summary>
         /// 수정일

@@ -21,7 +21,7 @@ namespace VideoAppCore.Models
 
         public async Task DeleteVideoByIdAsync(int id)
         {
-            var video = await _context.Videos.FindAsync(id);
+            var video = await _context.Videos.Where(v => v.Id == id).SingleOrDefaultAsync();
             if (video != null)
             {
                 _context.Videos.Remove(video);
@@ -36,7 +36,7 @@ namespace VideoAppCore.Models
 
         public async Task<Video> GetVideoByIdAsync(int id)
         {
-            return await _context.Videos.FindAsync(id);
+            return await _context.Videos.Where(v => v.Id == id).SingleOrDefaultAsync();
         }
 
         public async Task<Video> UpdateVideoAsync(Video model)

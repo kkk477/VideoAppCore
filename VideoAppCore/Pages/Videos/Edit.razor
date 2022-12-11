@@ -1,6 +1,16 @@
 ﻿@page "/Videos/Edit/{id}"
+@inject IVideoRepositoryAsync repository
 <h3>Edit</h3>
 
 @code {
+    [Parameter]
+    public string Id { get; set; }
 
+    Video video = new Video();
+    protected override async Task OnInitializedAsync()
+    {
+        if (int.TryParse(Id, out int id))
+        { }
+        video = await repository.GetVideoByIdAsync(id);
+    }
 }

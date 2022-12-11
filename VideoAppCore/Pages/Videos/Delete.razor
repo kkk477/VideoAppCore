@@ -1,6 +1,62 @@
 ﻿@page "/Videos/Delete/{id}"
+@inject IVideoRepositoryAsync repository
+@inject NavigationManager navigationManager
 <h3>Delete</h3>
 
-@code {
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>ID: </label>
+                @video.Id
+            </div>
+            <div class="form-group">
+                <label>Title: </label>
+                @video.Title
+            </div>
+            <div class="form-group">
+                <label>Url: </label>
+                @video.Url
+            </div>
+            <div class="form-group">
+                <label>Name: </label>
+                @video.Name
+            </div>
+            <div class="form-group">
+                <label>Created: </label>
+                @video.Created.ToShortTimeString();
+            </div>
+            <div class="form-group">
+                <input type="button" value="Delete" id="btnDelete_Click" @onclick="@btnDelete_Click"></input>
+                <input type="button" value="Cancle" id="btnCancle_Click" @onclick="@btnCancle_Click"></input>
+            </div>
+        </div>
+    </div>
+</form>
 
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    Video video = new Video();
+    protected override async Task OnInitializedAsync()
+    {
+        if (int.TryParse(Id, out int id))
+        { }
+        video = await repository.GetVideoByIdAsync(id);
+    }
+
+    protected async Task btnDelete_Click()
+    {
+        if (int.TryParse(Id, out int id))
+        { }
+        await repository.DeleteVideoByIdAsync(id);
+
+        navigationManager.NavigateTo("/Videos");    // 리스트 페이지로 이동
+    }
+
+    protected void btnCancle_Click()
+    {
+        navigationManager.NavigateTo("/Videos");    // 리스트 페이지로 이동
+    }
 }

@@ -1,6 +1,7 @@
 ﻿@page "/Videos/Delete/{id}"
 @inject IVideoRepositoryAsync repository
 @inject NavigationManager navigationManager
+@inject IJSRuntime JSRuntime
 <h3>Delete</h3>
 
 <form>
@@ -48,6 +49,14 @@
 
     protected async Task btnDelete_Click()
     {
+        var isDelete = await JSRuntime.InvokeAsync<bool>("confirm", "정말로 삭제하시겠습니까?");
+
+        if (!isDelete)
+        { 
+            await JSRuntime.InvokeAsync<object>("alert", "취소되었습니다.");
+            return;
+        }
+
         if (int.TryParse(Id, out int id))
         { }
         await repository.DeleteVideoByIdAsync(id);
